@@ -1,5 +1,5 @@
 import Url from "../../src/models/Url";
-import { makeShort } from "../utils";
+import { makeHash } from "../utils";
 
 export async function createUrl(_, args) {
   let longUrl = args.url;
@@ -25,8 +25,9 @@ export async function createUrl(_, args) {
   }
 
   async function newUrl() {
-    let shortUrl = makeShort(6);
-
+    // let shortUrl = makeShort(6);
+    let shortUrl = makeHash(longUrl);
+    /*
     // does short url already exist in the database?
     const urlClash = await Url.findAll({
       where: {
@@ -37,7 +38,7 @@ export async function createUrl(_, args) {
     if (urlClash.shortLink === shortUrl) {
       // make a new shortUrl
       return newUrl();
-    }
+    } */
 
     const userUrl = await Url.build({
       shortLink: shortUrl,
