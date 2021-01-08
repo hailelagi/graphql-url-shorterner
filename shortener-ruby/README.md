@@ -1,24 +1,40 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+* This is running Ruby '2.7.2'. To start `bundle install` in relative directory `./graphql-url-shorterner/shortener-ruby`.
 
-* Ruby version
+* Create a database `bin/rails db:create` or connect to custom one of your choice. By changing the config.
+```
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-* System dependencies
+development:
+  <<: *default
+  database: shortener_ruby_development
 
-* Configuration
+```
 
-* Database creation
+The db connection string would look something like this:
 
-* Database initialization
+```
+DEV_DATABASE_URL=postgres://<username>:<password>@127.0.0.1:5432/<dev_db>
+```
 
-* How to run the test suite
+* Run migrations (incase) `bin/rails db:migrate`
 
-* Services (job queues, cache servers, search engines, etc.)
+* `bin/rails server` to start the server.
 
-* Deployment instructions
+## Routes
 
-* ...
+```
+  get "/:user_link", to: "hand_over#index"
+```
+
+GraphQL Fields
+```
+getAllUrls: [Url!]
+getUrl(urlId: Int!): Url!
+createUrl(input: CreateUrlInput!): Url
+```

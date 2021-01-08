@@ -1,13 +1,18 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :get_url, UrlType, null: false do
+      argument :url_id, Integer, required: true
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :get_all_urls, [UrlType], null: true
+
+    def get_url(url_id:)
+      # add some error handling
+      Url.find(url_id)
+    end
+
+    def get_all_urls
+      Url.all
     end
   end
 end
