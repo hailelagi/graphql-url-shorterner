@@ -7,17 +7,22 @@ defmodule UrlShortenerWeb.Router do
 
   scope "/" do
     pipe_through :api
+
     forward "/graphiql", Absinthe.Plug.GraphiQL,
             schema: UrlShortenerWeb.Schema,
             interface: :simple,
             context: %{pubsub: UrlShortenerWeb.Endpoint}
   end
 
+  scope "/", UrlShortenerWeb do
+    pipe_through :api
+
+    get "/:short_link", RedirectController, :index
+  end
+
   scope "/api", UrlShortenerWeb do
     pipe_through :api
   end
-
-
 
   # Enables LiveDashboard only for development
   #
