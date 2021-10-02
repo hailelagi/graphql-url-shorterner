@@ -7,7 +7,7 @@ defmodule UrlShortenerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_url_shortener_key",
-    signing_salt: "QD2Qgrx4"
+    signing_salt: "zII3m/FG"
   ]
 
   socket "/socket", UrlShortenerWeb.UserSocket,

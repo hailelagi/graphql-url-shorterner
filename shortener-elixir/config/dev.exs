@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :url_shortener, UrlShortener.Repo,
-  username: System.get_env("USER_NAME"),
-  password: System.get_env("PASSWORD"),
-  database: System.get_env("DATABASE"),
-  hostname: System.get_env("HOST"),
+  username: "postgres",
+  password: "postgres",
+  database: "url_shortener_dev",
+  hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

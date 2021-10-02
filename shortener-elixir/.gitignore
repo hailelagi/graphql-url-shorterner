@@ -31,3 +31,5 @@ url_shortener-*.tar
 .env
 
 /.idea
+/priv/gettext/en/LC_MESSAGES/errors.po
+/priv/gettext/errors.pot

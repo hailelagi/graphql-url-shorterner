@@ -13,10 +13,10 @@ config :url_shortener,
 # Configures the endpoint
 config :url_shortener, UrlShortenerWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "qfKVBUh5wn09QHVuQOAwn+dWc+Ktx4zYRtjUnWx3LOlt8hEcdHMQ0FqB33LGwVQK",
+  secret_key_base: "6tmH5U+JkTzakdkKyOR33OCPrfsmqkGvYf4X4WwRTpF/BXmTlDAgiqJmrXt4Fe+r",
   render_errors: [view: UrlShortenerWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: UrlShortener.PubSub,
-  live_view: [signing_salt: "UfPjSMZB"]
+  live_view: [signing_salt: "MaQ0UY7W"]
 
 # Configures Elixir's Logger
 config :logger, :console,

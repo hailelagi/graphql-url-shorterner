@@ -5,9 +5,19 @@ defmodule UrlShortenerWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/" do
+    pipe_through :api
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+            schema: UrlShortenerWeb.Schema,
+            interface: :simple,
+            context: %{pubsub: UrlShortenerWeb.Endpoint}
+  end
+
   scope "/api", UrlShortenerWeb do
     pipe_through :api
   end
+
+
 
   # Enables LiveDashboard only for development
   #
