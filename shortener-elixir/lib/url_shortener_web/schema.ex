@@ -1,7 +1,7 @@
 defmodule UrlShortenerWeb.Schema do
   use Absinthe.Schema
 
-  alias UrlShortenerWeb.Resolvers.{ShortUrl}
+  alias UrlShortenerWeb.Resolvers.ShortUrl
 
   object :link do
     field :short_link, :string

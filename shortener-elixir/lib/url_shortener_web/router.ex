@@ -8,6 +8,9 @@ defmodule UrlShortenerWeb.Router do
   scope "/" do
     pipe_through :api
 
+    forward "/graphql", Absinthe.Plug,
+            schema: UrlShortenerWeb.Schema
+
     forward "/graphiql", Absinthe.Plug.GraphiQL,
             schema: UrlShortenerWeb.Schema,
             interface: :simple,
