@@ -10,7 +10,7 @@ defmodule UrlShortenerWeb.Resolvers.ShortUrl do
     end
   end
 
-  def create(_parent, %{url: url}, _resolution) do
+  def create(%{url: url}, _resolution) do
     short = hash(url)
 
     changeset = Url.changeset(%Url{}, %{original_link: url, short_link: short})

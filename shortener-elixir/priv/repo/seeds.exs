@@ -1,11 +1,5 @@
 # Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     UrlShortener.Repo.insert!(%UrlShortener.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+# mix run priv/repo/seeds.exs
+
+UrlShortener.Repo.insert!(%UrlShortener.Url{original_link: "www.example.com", short_link: "test01"})
+UrlShortener.Repo.insert!(%UrlShortener.Url{original_link: "www.google.com", short_link: "test02"})

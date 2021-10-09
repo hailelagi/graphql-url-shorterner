@@ -9,8 +9,9 @@ defmodule UrlShortenerWeb.Schema do
   end
 
   query do
+    @desc "Return a link if it has been shortened"
     field :get_link, :link do
-      arg :link, :string
+      arg :link, non_null(:string)
       resolve &ShortUrl.index/2
     end
   end
@@ -20,7 +21,7 @@ defmodule UrlShortenerWeb.Schema do
     field :create_short_url, :link do
       arg :url, non_null(:string)
 
-      resolve &ShortUrl.create/3
+      resolve &ShortUrl.create/2
     end
   end
 end
